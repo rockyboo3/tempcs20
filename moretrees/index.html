@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>more trees</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script>
+        function displayMenuItems() {
+            var bottomLinks = document.getElementById("mnav-bottom");
+
+            if (bottomLinks.style.display == "none") {
+                bottomLinks.style.display = "block";
+            } else {
+                bottomLinks.style.display = "none";
+            }
+        }
+    </script>
+    
+    <style type="text/css">
+        #landing {
+            background-image: url("treesbackgroundimage.jpg");
+            height: 100vh; 
+            padding: 20px;
+            background-size: cover;
+            background-position: 50% 85%;
+            text-align: center;
+        }
+        
+        #landing #learn-more {
+            background-color: #2e6f40;
+            padding: 15px 30px 15px 30px;
+            border-radius: 30px;
+            color: #fffdf8;
+            width: 100px !important;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        #landing #learn-more:hover {
+            opacity: 1;
+            background-color: #fffdf8;
+            color: #2e6f40;
+        }
+
+        #landing #landing-text {
+            color: #fffdf8;
+            font-size: 72px;
+            padding-bottom: 10px;
+            margin-bottom: -1px;
+            margin-top: 70vh;
+        }
+        
+        #section-two {
+            background-color: #7e937a;
+            display: flex;
+            justify-content: space-between;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+        
+        #section-two p {
+            color: #fffdf8;
+            font-size: 32px;
+            margin-left: 40px;
+            width: 50%;
+        }
+        
+        #section-two img {
+            width: 50%;
+            height: 50%;
+            max-width: 450px;
+            padding-right: 40px;
+        }
+
+        #section-three {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        #section-three #section-three-images {
+            display: flex;
+            height: 92vh;
+            justify-content: center;
+        }
+
+        #section-three .image-wrapper {
+            width: 35%;
+        }
+
+        #section-three #tree-two-image-wrapper {
+            background-image: url("trees2.jpg");
+            background-size: cover;
+        }
+
+        #section-three #tree-one-image-wrapper {
+            background-image: url("trees1.jpg");
+            background-position: 50% 85%;
+            background-size: cover;
+        }
+
+        #section-three #tree-three-image-wrapper {
+            background-image: url("trees3.jpg");
+            background-position: 50% 85%;
+            background-size: cover;
+        }
+
+        #section-three #join-the-team {
+            background-color: #fffdf8;
+            padding: 15px 30px 15px 30px;
+            border-radius: 50px;
+            color: #3f2508;
+            width: 300px !important;
+            margin: 0 auto;
+            font-size: 32px;
+            position: relative;
+            bottom: 50vh;
+            text-align: center;
+        }
+
+        #section-three #join-the-team:hover {
+            opacity: 1;
+            background-color: #3f2508;
+            color: #fffdf8;
+        }
+
+        #section-four {
+            overflow-x: hidden;
+            text-align: center;
+            width: 100%;
+            height: fit-content;
+            padding-bottom: 80px;
+        }
+
+        #section-four-content {
+            padding-top: 20px;
+            color:#3f2508;
+            font-size: 32px;
+        }
+
+        #stats-table {
+            margin: 0 auto;
+        }
+
+        #stats-table td {
+            padding: 0 30px;
+        }
+
+        #stats-table .stat-number {
+            font-size: 42px;
+            margin-bottom: -20px;
+        }
+
+        #section-five {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("darktrees.jpg");
+            background-size: cover;
+            height: fit-content;
+            padding-bottom: 80px;
+        }
+
+        #section-five #wave {
+            margin-top: -60px;
+            z-index: 3 !important;
+        }
+
+        #section-five p {
+            color: #fffdf8;
+            width: 50%;
+            margin-left: 40px;
+            font-size: 28px;
+            margin-top: -20px;
+        }
+
+        @media (max-width: 1030px) {
+            #section-two p {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 880px) {
+            #section-two p {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 670px) {
+            #landing #landing-text {
+                font-size: 48px;
+            }
+
+            #section-two p {
+                font-size: 18px;
+                height: fit-content;
+            }
+
+            #section-two img {
+                width: 50%;
+                height: 50%;
+                margin-top: 50px;
+            }
+
+            #tree-one-image-wrapper {
+                width: 100% !important;
+            }
+
+            #tree-two-image-wrapper {
+                display: none;
+            }
+
+            #tree-three-image-wrapper {
+                display: none;
+            }
+
+            #section-four {
+                height: fit-content;
+            }
+
+            #section-four-content {
+                font-size: 18px;
+            }
+
+            #section-five #wave {
+                margin-top: 0;
+            }
+
+            #section-five p {
+                font-size: 22px;
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 605px) {
+            #section-two img {
+                display: none;
+            }
+
+            #section-two p {
+                width: 100%;
+                margin-right: 40px;
+            }
+
+            #stats-table .stat-number {
+                font-size: 24px;
+            }
+
+            #stats-table td {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 465px) {
+            #landing #landing-text {
+                font-size: 32px;
+        
+            }
+
+            #landing #learn-more {
+                font-size: 16px;
+            }
+
+            #section-three #join-the-team {
+                font-size: 24px;
+                width: fit-content !important;
+                padding: 15px 60px;
+            }
+
+            #section-five p {
+                font-size: 18px;
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 420px) {
+            #stats-table td p{
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR USED FOR BIGGER DEVICES -->
+    <ul id="nav">
+        <div id="nav-left">
+            <a href="index.html"><svg style="width: 30px; height: auto; margin-top: -6px;" version="1.0" xmlns="http://www.w3.org/2000/svg"  width="230.000000pt" height="261.000000pt" viewBox="0 0 230.000000 261.000000"  preserveAspectRatio="xMidYMid meet"><a href="index.html"><g transform="translate(0.000000,261.000000) scale(0.100000,-0.100000)" fill="#fffdf8" stroke="none"> <path d="M1155 2447 c-34 -34 -75 -87 -91 -117 -26 -49 -29 -65 -29 -150 0 -86 3 -100 29 -150 l30 -55 13 83 c13 85 45 173 69 193 25 20 27 -35 4 -151 -11 -62 -19 -114 -16 -117 9 -9 57 31 90 76 60 83 78 170 55 271 -13 56 -69 180 -81 180 -6 0 -38 -28 -73 -63z"/> <path d="M661 2356 c-23 -93 -3 -185 52 -244 23 -25 76 -56 83 -49 2 2 -5 24 -16 48 -11 24 -20 61 -20 83 0 34 2 37 16 25 17 -14 50 -75 69 -128 l13 -36 12 30 c33 78 5 182 -65 243 -35 31 -105 72 -123 72 -5 0 -15 -20 -21 -44z"/> <path d="M1495 2287 c-47 -27 -67 -63 -59 -106 8 -36 25 -39 71 -11 35 21 49 65 36 112 l-8 27 -40 -22z"/> <path d="M1633 2121 c-101 -35 -167 -110 -179 -207 l-7 -49 55 51 c47 45 105 84 123 84 3 0 5 -7 5 -17 0 -9 -35 -50 -77 -91 l-78 -75 58 7 c139 16 229 112 252 269 l7 47 -53 0 c-30 -1 -77 -9 -106 -19z"/> <path d="M460 2032 c0 -51 29 -82 77 -82 32 0 33 1 33 40 0 44 -21 65 -78 76 -32 6 -32 6 -32 -34z"/> <path d="M1325 1973 c-47 -92 -184 -303 -196 -303 -5 0 -9 7 -9 16 0 32 -60 140 -100 181 -23 23 -62 51 -86 62 -51 24 -153 38 -178 24 -15 -8 -13 -15 14 -71 37 -72 94 -126 153 -140 23 -6 43 -9 46 -7 2 3 -13 28 -33 57 -41 60 -44 70 -18 61 32 -11 81 -65 101 -113 38 -88 45 -170 27 -322 -9 -75 -16 -185 -16 -243 l0 -107 -51 46 c-103 92 -247 142 -389 133 -105 -6 -184 -35 -253 -91 -55 -44 -129 -135 -121 -147 8 -14 129 -49 189 -55 102 -11 212 21 292 84 22 18 28 29 20 34 -7 4 -68 8 -137 8 l-125 1 23 19 c61 51 216 53 317 5 156 -75 245 -249 215 -423 -15 -93 -55 -174 -120 -245 -52 -58 -151 -123 -222 -148 -21 -7 -38 -16 -38 -20 0 -6 78 -42 145 -67 75 -29 210 -53 315 -59 307 -15 599 108 822 346 131 139 210 289 260 489 32 127 32 332 -1 456 -45 174 -142 355 -240 451 l-41 39 -34 -34 -35 -35 63 -77 c73 -90 147 -238 177 -353 138 -531 -241 -1084 -800 -1165 -45 -7 -84 -10 -87 -7 -3 3 1 16 10 29 26 40 66 175 77 258 11 93 1 199 -37 365 -34 150 -41 263 -21 342 44 171 169 312 297 337 l35 7 -41 -38 c-22 -21 -65 -60 -95 -86 l-54 -48 71 4 c87 5 145 31 203 90 42 42 111 145 111 165 0 33 -198 35 -283 3 -79 -31 -181 -116 -276 -231 l-21 -25 7 35 c9 48 40 130 113 294 52 117 107 282 97 292 -1 2 -20 -31 -42 -73z"/> <path d="M303 1868 l-63 -10 16 -36 c42 -101 138 -207 221 -244 70 -31 237 -38 219 -9 -3 4 -43 33 -88 64 -46 30 -94 67 -107 81 l-24 26 29 0 c46 0 130 -45 190 -102 38 -36 82 -97 139 -193 46 -77 90 -149 99 -160 15 -20 15 -20 16 1 1 66 -74 231 -143 316 -23 29 -53 69 -65 89 -53 86 -161 159 -267 178 -66 12 -85 12 -172 -1z"/> <path d="M170 1609 c-34 -14 -35 -14 -10 -49 31 -43 62 -54 105 -35 42 17 43 24 9 64 -27 33 -57 38 -104 20z"/> <path d="M1805 1580 c-28 -11 -41 -29 -49 -67 -7 -29 -5 -32 23 -38 55 -12 111 39 111 101 0 16 -52 18 -85 4z"/> <path d="M331 1440 l-63 -30 25 -20 c69 -54 177 -66 255 -29 l44 22 76 -21 c73 -19 75 -19 51 -1 -80 64 -194 109 -273 109 -36 0 -70 -9 -115 -30z"/> <path d="M121 1300 c-50 -37 -65 -70 -57 -128 10 -77 16 -79 74 -25 44 41 52 55 52 85 0 20 -6 50 -13 67 l-13 31 -43 -30z"/> <path d="M1673 1300 c-47 -29 -66 -63 -64 -120 1 -56 -11 -63 -41 -25 -35 45 -110 52 -176 16 -34 -18 -62 -74 -62 -125 0 -57 17 -93 64 -134 58 -51 67 -50 148 17 92 75 227 160 312 196 43 18 66 34 66 44 0 32 -46 106 -79 128 -44 30 -123 31 -168 3z"/> <path d="M1805 1037 c-91 -48 -180 -108 -245 -165 l-44 -39 129 -31 c71 -18 132 -28 135 -24 9 10 116 251 124 280 10 32 -6 28 -99 -21z"/> <path d="M112 863 c28 -105 114 -253 211 -366 l50 -58 38 37 37 36 -51 62 c-69 81 -112 150 -153 243 l-33 78 -55 3 -55 3 11 -38z"/></g></svg></a> 
+            <li><a href="index.html">more trees</a></li>   
+        </div>
+
+        <div id="nav-right">
+            <li id="nav-getinvolved" class="nav-text-element"><a href="getinvolved.html">get involved</a></li>
+            <li id="nav-ourstory" class="nav-text-element"><a href="ourstory.html">our story</a></li>
+            <li id="nav-contact" class="nav-text-element"><a href="contact.html">contact</a></li>
+            <li><a id="donate-button" href="#">donate</a></li>   
+        </div>     
+    </ul>
+
+    <!-- NAVBAR USED FOR SMALLER DEVICES -->
+    <ul id="mnav">
+        <div id ="mnav-top">
+            <div id="mnav-left">
+                <a href="index.html"><svg style="width: 30px; height: auto; margin-top: -6px;" version="1.0" xmlns="http://www.w3.org/2000/svg"  width="230.000000pt" height="261.000000pt" viewBox="0 0 230.000000 261.000000"  preserveAspectRatio="xMidYMid meet"><a href="index.html"><g transform="translate(0.000000,261.000000) scale(0.100000,-0.100000)" fill="#fffdf8" stroke="none"> <path d="M1155 2447 c-34 -34 -75 -87 -91 -117 -26 -49 -29 -65 -29 -150 0 -86 3 -100 29 -150 l30 -55 13 83 c13 85 45 173 69 193 25 20 27 -35 4 -151 -11 -62 -19 -114 -16 -117 9 -9 57 31 90 76 60 83 78 170 55 271 -13 56 -69 180 -81 180 -6 0 -38 -28 -73 -63z"/> <path d="M661 2356 c-23 -93 -3 -185 52 -244 23 -25 76 -56 83 -49 2 2 -5 24 -16 48 -11 24 -20 61 -20 83 0 34 2 37 16 25 17 -14 50 -75 69 -128 l13 -36 12 30 c33 78 5 182 -65 243 -35 31 -105 72 -123 72 -5 0 -15 -20 -21 -44z"/> <path d="M1495 2287 c-47 -27 -67 -63 -59 -106 8 -36 25 -39 71 -11 35 21 49 65 36 112 l-8 27 -40 -22z"/> <path d="M1633 2121 c-101 -35 -167 -110 -179 -207 l-7 -49 55 51 c47 45 105 84 123 84 3 0 5 -7 5 -17 0 -9 -35 -50 -77 -91 l-78 -75 58 7 c139 16 229 112 252 269 l7 47 -53 0 c-30 -1 -77 -9 -106 -19z"/> <path d="M460 2032 c0 -51 29 -82 77 -82 32 0 33 1 33 40 0 44 -21 65 -78 76 -32 6 -32 6 -32 -34z"/> <path d="M1325 1973 c-47 -92 -184 -303 -196 -303 -5 0 -9 7 -9 16 0 32 -60 140 -100 181 -23 23 -62 51 -86 62 -51 24 -153 38 -178 24 -15 -8 -13 -15 14 -71 37 -72 94 -126 153 -140 23 -6 43 -9 46 -7 2 3 -13 28 -33 57 -41 60 -44 70 -18 61 32 -11 81 -65 101 -113 38 -88 45 -170 27 -322 -9 -75 -16 -185 -16 -243 l0 -107 -51 46 c-103 92 -247 142 -389 133 -105 -6 -184 -35 -253 -91 -55 -44 -129 -135 -121 -147 8 -14 129 -49 189 -55 102 -11 212 21 292 84 22 18 28 29 20 34 -7 4 -68 8 -137 8 l-125 1 23 19 c61 51 216 53 317 5 156 -75 245 -249 215 -423 -15 -93 -55 -174 -120 -245 -52 -58 -151 -123 -222 -148 -21 -7 -38 -16 -38 -20 0 -6 78 -42 145 -67 75 -29 210 -53 315 -59 307 -15 599 108 822 346 131 139 210 289 260 489 32 127 32 332 -1 456 -45 174 -142 355 -240 451 l-41 39 -34 -34 -35 -35 63 -77 c73 -90 147 -238 177 -353 138 -531 -241 -1084 -800 -1165 -45 -7 -84 -10 -87 -7 -3 3 1 16 10 29 26 40 66 175 77 258 11 93 1 199 -37 365 -34 150 -41 263 -21 342 44 171 169 312 297 337 l35 7 -41 -38 c-22 -21 -65 -60 -95 -86 l-54 -48 71 4 c87 5 145 31 203 90 42 42 111 145 111 165 0 33 -198 35 -283 3 -79 -31 -181 -116 -276 -231 l-21 -25 7 35 c9 48 40 130 113 294 52 117 107 282 97 292 -1 2 -20 -31 -42 -73z"/> <path d="M303 1868 l-63 -10 16 -36 c42 -101 138 -207 221 -244 70 -31 237 -38 219 -9 -3 4 -43 33 -88 64 -46 30 -94 67 -107 81 l-24 26 29 0 c46 0 130 -45 190 -102 38 -36 82 -97 139 -193 46 -77 90 -149 99 -160 15 -20 15 -20 16 1 1 66 -74 231 -143 316 -23 29 -53 69 -65 89 -53 86 -161 159 -267 178 -66 12 -85 12 -172 -1z"/> <path d="M170 1609 c-34 -14 -35 -14 -10 -49 31 -43 62 -54 105 -35 42 17 43 24 9 64 -27 33 -57 38 -104 20z"/> <path d="M1805 1580 c-28 -11 -41 -29 -49 -67 -7 -29 -5 -32 23 -38 55 -12 111 39 111 101 0 16 -52 18 -85 4z"/> <path d="M331 1440 l-63 -30 25 -20 c69 -54 177 -66 255 -29 l44 22 76 -21 c73 -19 75 -19 51 -1 -80 64 -194 109 -273 109 -36 0 -70 -9 -115 -30z"/> <path d="M121 1300 c-50 -37 -65 -70 -57 -128 10 -77 16 -79 74 -25 44 41 52 55 52 85 0 20 -6 50 -13 67 l-13 31 -43 -30z"/> <path d="M1673 1300 c-47 -29 -66 -63 -64 -120 1 -56 -11 -63 -41 -25 -35 45 -110 52 -176 16 -34 -18 -62 -74 -62 -125 0 -57 17 -93 64 -134 58 -51 67 -50 148 17 92 75 227 160 312 196 43 18 66 34 66 44 0 32 -46 106 -79 128 -44 30 -123 31 -168 3z"/> <path d="M1805 1037 c-91 -48 -180 -108 -245 -165 l-44 -39 129 -31 c71 -18 132 -28 135 -24 9 10 116 251 124 280 10 32 -6 28 -99 -21z"/> <path d="M112 863 c28 -105 114 -253 211 -366 l50 -58 38 37 37 36 -51 62 c-69 81 -112 150 -153 243 l-33 78 -55 3 -55 3 11 -38z"/></g></svg></a> 
+                <li><a href="index.html">more trees</a></li>   
+            </div>
+    
+            <div id="mnav-right">
+                <svg onclick="displayMenuItems()" id="hamburger-menu" style="width: 20px; margin-top: -12px; margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#fffdf8" d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+                <li><a id="mdonate-button" href="#">donate</a></li>   
+            </div>
+        </div>
+
+        <div style="display: none;" id="mnav-bottom">
+            <li id="mnav-getinvolved" class="mnav-text-element"><a href="getinvolved.html">get involved</a></li>
+            <li id="mnav-ourstory" class="mnav-text-element"><a href="ourstory.html">our story</a></li>
+            <li id="mnav-contact" class="mnav-text-element"><a href="contact.html">contact</a></li>
+        </div>     
+    </ul>
+
+    <div id="landing">
+        <p id="landing-text">plant more trees.</p>
+        <a href="ourstory.html"><p id="learn-more">learn more</p></a>
+    </div>
+
+    <div id="section-two">
+        <p>
+            our mission is simple: plant more trees. 
+            <br><br>
+            deforestation significantly disrupts ecosystems and 
+            contributes towards the issues of climate change.
+            <br><br>
+            it destroys habitats, causes landslides, and increases 
+            flooding risks.
+            <br><br>
+            at more trees, we take all donations with the goal of 
+            revitalizing habitats and allowing forests to flourish.
+        </p>
+
+        <img src="treesfromcanva.jpg"/>
+    </div>
+
+    <div id="section-three">
+        <div id="section-three-images">
+            <div class="image-wrapper" id="tree-two-image-wrapper"></div>
+            <div class="image-wrapper" id="tree-one-image-wrapper"></div>
+            <div class="image-wrapper" id="tree-three-image-wrapper"></div>
+        </div>
+
+        <a href="getinvolved.html"><p id="join-the-team">join the team</p></a>
+    </div>
+
+    <div id="section-four">
+        <div id="section-four-content">
+            <p>don't believe us? maybe you'll believe the numbers...</p>
+
+            <table id="stats-table">
+                <tr>
+                    <td>
+                        <p class="stat-number"><strong>10,000</strong></p>
+                        <p>trees planted</p>
+                    </td>
+
+                    <td>
+                        <p class="stat-number"><strong>300</strong></p>
+                        <p>active volunteers</p>
+                    </td>
+
+                    <td>
+                        <p class="stat-number"><strong>50,000+</strong></p>
+                        <p>dollars matched</p>
+                    </td>
+                </tr>
+            </table>
+
+            <p>...and we're just getting started.</p>
+        </div>
+    </div>
+
+    <div id="section-five">
+        <svg id="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#fffdf8" 
+                  fill-opacity="1" 
+                  d="M0,224L60,208C120,192,240,160,360,144C480,128,600,128,720,160C840,192,960,256,1080,277.3C1200,299,1320,277,1380,266.7L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
+
+        <p>
+            from the bottom of our hearts, the members of more trees would like
+            to thank you for your shared commitment to replanting our world's forests.
+            <br><br>
+            without you, we would not be able to achieve our goal of revitalizing
+            essential habitats for plants and animals alike.
+        </p>
+    </div>
+
+    <div id="footer">
+        <div id="footer-left-content">
+            <p>
+                <strong style="font-size: 18px;">more trees</strong>
+                <br>
+                rebuilding the world's forests, 
+                one tree at a time.
+            </p>
+            <div id="footer-buttons">
+                <a href="contact.html"><p id="footer-contact">contact</p></a>
+                <a href="#"><p id="footer-donate">donate</p></a>
+            </div>
+        </div>
+
+        <a id="footer-logo" href="index.html"><svg style="padding: 30px 0 0 0; width: 80px; height: auto;" version="1.0" xmlns="http://www.w3.org/2000/svg"  width="230.000000pt" height="261.000000pt" viewBox="0 0 230.000000 261.000000"  preserveAspectRatio="xMidYMid meet"><a href="index.html"><g transform="translate(0.000000,261.000000) scale(0.100000,-0.100000)" fill="#fffdf8" stroke="none"> <path d="M1155 2447 c-34 -34 -75 -87 -91 -117 -26 -49 -29 -65 -29 -150 0 -86 3 -100 29 -150 l30 -55 13 83 c13 85 45 173 69 193 25 20 27 -35 4 -151 -11 -62 -19 -114 -16 -117 9 -9 57 31 90 76 60 83 78 170 55 271 -13 56 -69 180 -81 180 -6 0 -38 -28 -73 -63z"/> <path d="M661 2356 c-23 -93 -3 -185 52 -244 23 -25 76 -56 83 -49 2 2 -5 24 -16 48 -11 24 -20 61 -20 83 0 34 2 37 16 25 17 -14 50 -75 69 -128 l13 -36 12 30 c33 78 5 182 -65 243 -35 31 -105 72 -123 72 -5 0 -15 -20 -21 -44z"/> <path d="M1495 2287 c-47 -27 -67 -63 -59 -106 8 -36 25 -39 71 -11 35 21 49 65 36 112 l-8 27 -40 -22z"/> <path d="M1633 2121 c-101 -35 -167 -110 -179 -207 l-7 -49 55 51 c47 45 105 84 123 84 3 0 5 -7 5 -17 0 -9 -35 -50 -77 -91 l-78 -75 58 7 c139 16 229 112 252 269 l7 47 -53 0 c-30 -1 -77 -9 -106 -19z"/> <path d="M460 2032 c0 -51 29 -82 77 -82 32 0 33 1 33 40 0 44 -21 65 -78 76 -32 6 -32 6 -32 -34z"/> <path d="M1325 1973 c-47 -92 -184 -303 -196 -303 -5 0 -9 7 -9 16 0 32 -60 140 -100 181 -23 23 -62 51 -86 62 -51 24 -153 38 -178 24 -15 -8 -13 -15 14 -71 37 -72 94 -126 153 -140 23 -6 43 -9 46 -7 2 3 -13 28 -33 57 -41 60 -44 70 -18 61 32 -11 81 -65 101 -113 38 -88 45 -170 27 -322 -9 -75 -16 -185 -16 -243 l0 -107 -51 46 c-103 92 -247 142 -389 133 -105 -6 -184 -35 -253 -91 -55 -44 -129 -135 -121 -147 8 -14 129 -49 189 -55 102 -11 212 21 292 84 22 18 28 29 20 34 -7 4 -68 8 -137 8 l-125 1 23 19 c61 51 216 53 317 5 156 -75 245 -249 215 -423 -15 -93 -55 -174 -120 -245 -52 -58 -151 -123 -222 -148 -21 -7 -38 -16 -38 -20 0 -6 78 -42 145 -67 75 -29 210 -53 315 -59 307 -15 599 108 822 346 131 139 210 289 260 489 32 127 32 332 -1 456 -45 174 -142 355 -240 451 l-41 39 -34 -34 -35 -35 63 -77 c73 -90 147 -238 177 -353 138 -531 -241 -1084 -800 -1165 -45 -7 -84 -10 -87 -7 -3 3 1 16 10 29 26 40 66 175 77 258 11 93 1 199 -37 365 -34 150 -41 263 -21 342 44 171 169 312 297 337 l35 7 -41 -38 c-22 -21 -65 -60 -95 -86 l-54 -48 71 4 c87 5 145 31 203 90 42 42 111 145 111 165 0 33 -198 35 -283 3 -79 -31 -181 -116 -276 -231 l-21 -25 7 35 c9 48 40 130 113 294 52 117 107 282 97 292 -1 2 -20 -31 -42 -73z"/> <path d="M303 1868 l-63 -10 16 -36 c42 -101 138 -207 221 -244 70 -31 237 -38 219 -9 -3 4 -43 33 -88 64 -46 30 -94 67 -107 81 l-24 26 29 0 c46 0 130 -45 190 -102 38 -36 82 -97 139 -193 46 -77 90 -149 99 -160 15 -20 15 -20 16 1 1 66 -74 231 -143 316 -23 29 -53 69 -65 89 -53 86 -161 159 -267 178 -66 12 -85 12 -172 -1z"/> <path d="M170 1609 c-34 -14 -35 -14 -10 -49 31 -43 62 -54 105 -35 42 17 43 24 9 64 -27 33 -57 38 -104 20z"/> <path d="M1805 1580 c-28 -11 -41 -29 -49 -67 -7 -29 -5 -32 23 -38 55 -12 111 39 111 101 0 16 -52 18 -85 4z"/> <path d="M331 1440 l-63 -30 25 -20 c69 -54 177 -66 255 -29 l44 22 76 -21 c73 -19 75 -19 51 -1 -80 64 -194 109 -273 109 -36 0 -70 -9 -115 -30z"/> <path d="M121 1300 c-50 -37 -65 -70 -57 -128 10 -77 16 -79 74 -25 44 41 52 55 52 85 0 20 -6 50 -13 67 l-13 31 -43 -30z"/> <path d="M1673 1300 c-47 -29 -66 -63 -64 -120 1 -56 -11 -63 -41 -25 -35 45 -110 52 -176 16 -34 -18 -62 -74 -62 -125 0 -57 17 -93 64 -134 58 -51 67 -50 148 17 92 75 227 160 312 196 43 18 66 34 66 44 0 32 -46 106 -79 128 -44 30 -123 31 -168 3z"/> <path d="M1805 1037 c-91 -48 -180 -108 -245 -165 l-44 -39 129 -31 c71 -18 132 -28 135 -24 9 10 116 251 124 280 10 32 -6 28 -99 -21z"/> <path d="M112 863 c28 -105 114 -253 211 -366 l50 -58 38 37 37 36 -51 62 c-69 81 -112 150 -153 243 l-33 78 -55 3 -55 3 11 -38z"/></g></svg></a> 
+
+        <div id="footer-right-content">
+            <p>
+                more trees is a non-profit initiative that aims to
+                collect donations and volunteers with the shared 
+                passion for revitalizing earth's forests. for more
+                information, click 
+                <a href="ourstory.html" style="color:#fffdf8;">
+                    <strong>here</strong>
+                </a> 
+                to read our story.
+
+                <br><br>
+
+                created by: caitlyn parrish-lewis 2025
+            </p>
+        </div>
+    </div>
+</body>
+</html>

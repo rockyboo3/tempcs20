@@ -1,0 +1,234 @@
+body, html {
+    font-family: "Work Sans", serif;
+    background-color: #fffdf8;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul#nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    background-color: #2e6f40;
+    padding: 24px 40px 14px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0;
+    z-index: 5;
+}
+
+ul#nav #nav-left {
+    display: flex;
+    flex-direction: row;
+}
+
+ul#nav #nav-right {
+    display: flex;
+    flex-direction: row;
+}
+
+ul#nav li {
+    margin: 0 10px;
+}
+
+ul#nav li a {
+    color: #fffdf8;
+}
+
+ul#nav #donate-button {
+    background-color: #fffdf8;
+    color:#2e6f40 !important;
+    padding: 5px 20px;
+    border-radius: 16px;
+    margin-top: -5px;
+    margin-right: 60px;
+}
+
+ul#nav #donate-button:hover {
+    background-color: #7e937a;
+    color:#fffdf8 !important;
+}
+
+#footer {
+    background-color: #2e6f40;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 14px;
+}
+
+#footer #footer-left-content {
+    width: 400px;
+    padding: 20px 20px 20px 40px;
+}
+
+
+#footer p {
+    color:#fffdf8;
+}
+
+#footer #footer-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: -16px;
+}
+
+#footer #footer-contact {
+    margin-right: 20px;
+    background-color: #fffdf8;
+    color:#2e6f40 !important;
+    padding: 5px 20px;
+    border-radius: 16px;
+}
+
+#footer #footer-contact:hover {
+    background-color: #7e937a;
+    color:#fffdf8 !important;
+}
+
+#footer #footer-donate {
+    background-color: #fffdf8;
+    color:#2e6f40 !important;
+    padding: 5px 20px;
+    border-radius: 16px;
+}
+
+#footer #footer-donate:hover {
+    background-color: #7e937a;
+    color:#fffdf8 !important;
+}
+
+#footer #footer-right-content {
+    width: 400px;
+    padding: 20px 20px 20px 40px;
+}
+
+ul#mnav {
+    display: none;
+}
+
+@media (max-width: 670px) {
+    ul#nav {
+        display: none;
+    }
+
+    ul#mnav {
+        display: block;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 0;
+        z-index: 5;
+    }
+    
+    ul#mnav #mnav-top {
+        width: 100%;
+        margin-left: 0;
+        top: 0;
+        background-color: #2e6f40;
+        padding: 24px 40px 14px 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    ul#mnav #mnav-bottom {
+        display: none;
+        float: right;
+        text-align: right;
+        margin-right: 120px;
+        padding: 0 0 10px 20px;
+        width:fit-content;
+    }
+    
+    ul#mnav #mnav-bottom .mnav-text-element {
+        background-color: #7e937a;
+        padding: 20px;
+        width: 100px;
+    }
+    
+    ul#mnav #mnav-bottom .mnav-text-element:hover {
+        background-color: #fffdf8;
+    }
+    
+    ul#mnav #mnav-bottom .mnav-text-element:hover a {
+        color: #7e937a;
+    }
+    
+    ul#mnav #mnav-right #hamburger-menu {
+        cursor: pointer;
+    }
+
+    ul#mnav #mnav-left {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    ul#mnav #mnav-right {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    ul#mnav li {
+        margin: 0 10px;
+    }
+    
+    ul#mnav li a {
+        color: #fffdf8;
+    }
+    
+    ul#mnav #mdonate-button {
+        background-color: #fffdf8;
+        color:#2e6f40 !important;
+        padding: 5px 20px;
+        border-radius: 16px;
+        margin-top: -5px;
+        margin-right: 50px;
+    }
+    
+    ul#mnav #mdonate-button:hover {
+        background-color: #7e937a;
+        color:#fffdf8 !important;
+    }
+
+    #footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #footer #footer-left-content {
+        padding: 0 10px;
+        width: auto;
+    }
+
+    #footer #footer-right-content {
+        padding: 0 20px 20px 20px;
+        width: auto;
+    }
+
+    #footer #footer-logo {
+        display: none;
+    }
+
+    #footer #footer-buttons {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    ul#mnav #mnav-top {
+        padding: 24px 10px 14px 10px;
+    }
+
+    ul#mnav #mdonate-button {
+        margin-right: 12px;
+    }
+}
