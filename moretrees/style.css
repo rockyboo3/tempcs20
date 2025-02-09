@@ -1,11 +1,16 @@
-body, html {
+body, html 
+{
     font-family: "Work Sans", serif;
     background-color: #fffdf8;
     margin: 0px;
 }
 
-a {
-    text-decoration: none;
+a { 
+    text-decoration: none; 
+}
+
+.general_hover:hover {
+    opacity: 0.8;
 }
 
 ul#nav {
@@ -25,6 +30,12 @@ ul#nav {
 ul#nav #nav-left {
     display: flex;
     flex-direction: row;
+}
+
+ul#nav #nav-left a svg {
+    width: 30px; 
+    height: auto; 
+    margin-top: -6px;
 }
 
 ul#nav #nav-right {
@@ -113,6 +124,12 @@ ul#mnav {
     display: none;
 }
 
+#footer-logo svg {
+    padding: 30px 0 0 0; 
+    width: 80px; 
+    height: auto;
+}
+
 @media (max-width: 670px) {
     ul#nav {
         display: none;
@@ -165,11 +182,20 @@ ul#mnav {
     
     ul#mnav #mnav-right #hamburger-menu {
         cursor: pointer;
+        width: 20px; 
+        margin-top: -12px; 
+        margin-right: 10px;
     }
 
     ul#mnav #mnav-left {
         display: flex;
         flex-direction: row;
+    }
+
+    ul#mnav #mnav-left a svg {
+        width: 30px; 
+        height: auto; 
+        margin-top: -6px;
     }
     
     ul#mnav #mnav-right {

@@ -1,0 +1,16 @@
+Caitlyn Parrish-Lewis
+Prof. DiOrio
+Assignment 2: Business Website
+
+Notes:
+ - "donate" buttons purposely do not link to any page as there is no donate page
+   in this implementation
+   
+ - favicons/svgs used for the hamburger menu and the contact page (location
+   pin icon, telephone icon, and email icon) all from fontawesome.com
+
+ - wave svg used on the homepage (index.html) was made using getwaves.io
+
+ - logo was made using Microsoft Bing's AI Image Generator
+
+ - logo was converted to an svg using picsvg.com
