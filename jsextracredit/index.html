@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Worksheet</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        
+    </style>
+
+    <script>
+        //Note --> songs is a public array so it can be accessed in both problem 4 and 5
+        songs = [];
+
+        function problem1() {
+            for(i = 40; i >= 10; i -= 2) {
+                document.write(i + " ");
+            }
+        }
+
+        function problem2() {
+            sum = 0;
+            while (sum <= 20) {
+                sum += parseInt(prompt("Problem 2\nCurrent sum: " + sum + "\nEnter a number: "));
+            }
+        }
+
+        function problem3() {
+            sum = 0;
+            numArray = []
+            while (sum <= 20) {
+                userNum = parseInt(prompt("Problem 3\nCurrent sum: " + sum + "\nEnter a number: "));
+                sum += userNum;
+                numArray.push(userNum);
+            }
+
+            for (index in numArray) {
+                document.write(numArray[index] + " ");
+            }
+        }
+
+        function problem4() {
+            songs["No One Noticed"] = "The Marias";
+            songs["Hey Jude"] = "The Beatles";
+            songs["Heavy"] = "The Marias";
+            songs["Landslide"] = "Fleetwood Mac";
+            songs["Dreams"] = "Fleetwood Mac"
+
+            for (song in songs) {
+                document.write("Song: " + song + ", Band: " + songs[song] + "<br>");
+            }
+        }
+
+        function problem5() {
+            bandName = prompt("Enter the name of a band: ");
+
+            for (song in songs) {
+                if(songs[song] == bandName) {
+                    document.write(song + "<br>");
+                }
+            }
+        }
+
+        function runFunctions() {
+            document.write("Problem 1:<br>")
+            problem1();
+            document.write("<br><br>Problem 2:<br>");
+            problem2();
+            document.write("<br><br>Problem 3:<br>");
+            problem3();
+            document.write("<br><br>Problem 4:<br>");
+            problem4();
+            document.write("<br><br>Problem 5:<br>");
+            problem5();
+        }
+
+        runFunctions();
+    </script>
+</head>
+<body>
+</body>
+</html>
