@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joe's Hotdogs</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+        }
+
+        #receipt {
+            margin: 0 auto;
+            margin-top: 12px;
+            width: fit-content;
+            font-family: "Cousine", serif;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        #receiptTable {
+            margin: -12px 0 -22px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="receipt">
+        <h2 class="centered">JOE'S HOTDOGS</h2>
+        <p class="centered">CUSTOMER RECEIPT</p>
+
+        <p>
+            ORDER #0001 FOR JOE'S HOTDOGS 
+            <br>
+            WEDNESDAY, APRIL 1, 2025
+            <br>
+            _________________________________________
+            <br>
+        </p>
+        <table id="receiptTable" cellspacing="0" cellpadding="5">
+            <tr>
+                <td style="width: 60px;"><strong>QTY</strong></td>
+                <td style="width: 200px;"><strong>ITEM</strong></td>
+                <td><strong>TOTAL COST</strong></td>
+            </tr>
+        </table>
+        <p>
+            _________________________________________
+            <br>
+        </p>
+    </div>
+</body>
+    <script>
+        const HOTDOG_PRICE = 4.99;
+        const FRENCHFRY_PRICE = 3.99;
+        const DRINK_PRICE = 1.79;
+
+        numDogs = prompt("How many Hotdogs would you like? ($4.99 each): ", "0");
+        numFries = prompt("How many French Fries would you like? ($3.99 each): ", "0");
+        numSoda = prompt("How many Drinks would you like? ($1.79 each): ", "0");
+        
+        dogPrice = HOTDOG_PRICE * parseInt(numDogs);
+        friesPrice = FRENCHFRY_PRICE * parseInt(numFries);
+        sodaPrice = DRINK_PRICE * parseInt(numSoda);
+
+        receipt = document.getElementById("receipt");
+
+        itemsAndPricesP = document.createElement("p");
+        itemsAndPricesP.innerHTML 
+            = "-" + numDogs + "------" + "HOTDOGS" + "---------------$" + showMoney(dogPrice) + "<br/><br/>"
+            + "-" + numFries + "------" + "FRENCH FRIES" + "----------$" + showMoney(friesPrice) + "<br/><br/>"
+            + "-" + numSoda + "------" + "DRINKS" + "----------------$" + showMoney(sodaPrice) + "<br/>"
+            + "_________________________________________<br/>"
+        receipt.appendChild(itemsAndPricesP);
+
+        subtotal = dogPrice + friesPrice + sodaPrice;
+        subBeforeDisP = document.createElement("p");
+        subBeforeDisP.textContent = "SUBTOTAL BEFORE DISCOUNT: $" + showMoney(subtotal);
+        receipt.appendChild(subBeforeDisP);
+
+        discountAmount = subtotal >= 30 ? subtotal * 0.1 : 0;
+        discountP = document.createElement("p");
+        discountP.textContent = "DISCOUNT AMOUNT: $" + showMoney(discountAmount);
+        receipt.appendChild(discountP);
+
+        subtotal -= discountAmount;
+        subAfterDisP = document.createElement("p");
+        subAfterDisP.textContent = "SUBTOTAL AFTER DISCOUNT: $" + showMoney(subtotal);
+        receipt.appendChild(subAfterDisP);
+
+        taxAmount = subtotal * 0.0625;
+        taxP = document.createElement("p");
+        taxP.textContent = "TAX AMOUNT: $" + showMoney(taxAmount);
+        receipt.appendChild(taxP);
+
+        subtotal += taxAmount;
+        finalTotalP = document.createElement("p");
+        finalTotalP.textContent = "FINAL TOTAL: $" + showMoney(subtotal);
+        receipt.appendChild(finalTotalP);
+
+        divider = document.createElement("p");
+        divider.textContent = "_________________________________________";
+        receipt.appendChild(divider);
+
+        thankYou = document.createElement("p");
+        thankYou.innerHTML = "Thank you for shopping at Joe's Hotdogs!<br/>Please come again soon :-)";
+        thankYou.style.textAlign = "center";
+        receipt.appendChild(thankYou);
+
+        function showMoney(unroundedNum) {
+            let rounded = Math.round(unroundedNum * 100) / 100;
+            let integerPart = Math.floor(rounded); 
+            let decimalPart = Math.round((rounded - integerPart) * 100); 
+
+            return integerPart + "." + (decimalPart < 10 ? "0" : "") + decimalPart;
+        } 
+    </script>
+</html>
