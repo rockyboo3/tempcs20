@@ -37,7 +37,7 @@
         <p>
             ORDER #0001 FOR JOE'S HOTDOGS 
             <br>
-            WEDNESDAY, APRIL 1, 2025
+            WEDNESDAY, APRIL 5, 2025
             <br>
             _________________________________________
             <br>
@@ -113,9 +113,9 @@
         receipt.appendChild(thankYou);
 
         function showMoney(unroundedNum) {
-            let rounded = Math.round(unroundedNum * 100) / 100;
-            let integerPart = Math.floor(rounded); 
-            let decimalPart = Math.round((rounded - integerPart) * 100); 
+            rounded = Math.round(unroundedNum * 100) / 100;
+            integerPart = Math.floor(rounded); 
+            decimalPart = Math.round((rounded - integerPart) * 100); 
 
             return integerPart + "." + (decimalPart < 10 ? "0" : "") + decimalPart;
         } 
