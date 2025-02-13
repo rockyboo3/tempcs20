@@ -3,7 +3,6 @@
 <head>
     <title>Joe's Hotdogs</title>
     <meta name='viewport' content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
     <style type="text/css">
@@ -37,57 +36,10 @@
         numDogs = prompt("How many Hotdogs would you like? ($4.99 each): ", "0");
         numFries = prompt("How many French Fries would you like? ($3.99 each): ", "0");
         numSoda = prompt("How many Drinks would you like? ($1.79 each): ", "0");
-        
-        dogPrice = parseFloat(showMoney(HOTDOG_PRICE * parseInt(numDogs)));
-        friesPrice = parseFloat(showMoney(FRENCHFRY_PRICE * parseInt(numFries)));
-        sodaPrice = parseFloat(showMoney(DRINK_PRICE * parseInt(numSoda)));
-
-        window.onload = function () {
-            receipt = document.getElementById("receipt");
-
-            itemsAndPricesP = document.createElement("p");
-            itemsAndPricesP.innerHTML 
-                = "-" + numDogs + "------" + "HOTDOGS" + "---------------$" + dogPrice + "<br/><br/>"
-                + "-" + numFries + "------" + "FRENCH FRIES" + "----------$" + friesPrice + "<br/><br/>"
-                + "-" + numSoda + "------" + "DRINKS" + "----------------$" + sodaPrice + "<br/>"
-                + "_________________________________________<br/>";
-            receipt.appendChild(itemsAndPricesP);
-
-            subtotal = parseFloat(showMoney(dogPrice + friesPrice + sodaPrice));
-            subBeforeDisP = document.createElement("p");
-            subBeforeDisP.innerHTML = "SUBTOTAL BEFORE DISCOUNT: $" + subtotal;
-            receipt.appendChild(subBeforeDisP);
-
-            discountAmount = subtotal >= 30 ? subtotal * 0.1 : 0;
-            discountAmount = parseFloat(showMoney(discountAmount));
-            discountP = document.createElement("p");
-            discountP.innerHTML = "DISCOUNT AMOUNT: $" + discountAmount;
-            receipt.appendChild(discountP);
-
-            subtotal = parseFloat(showMoney(subtotal - discountAmount));
-            subAfterDisP = document.createElement("p");
-            subAfterDisP.innerHTML = "SUBTOTAL AFTER DISCOUNT: $" + subtotal;
-            receipt.appendChild(subAfterDisP);
-
-            taxAmount = parseFloat(showMoney(subtotal * 0.0625));
-            taxP = document.createElement("p");
-            taxP.innerHTML = "TAX AMOUNT: $" + taxAmount;
-            receipt.appendChild(taxP);
-
-            subtotal = parseFloat(showMoney(subtotal + taxAmount));
-            finalTotalP = document.createElement("p");
-            finalTotalP.innerHTML = "FINAL TOTAL: $" + subtotal;
-            receipt.appendChild(finalTotalP);
-
-            divider = document.createElement("p");
-            divider.innerHTML = "_________________________________________";
-            receipt.appendChild(divider);
-
-            thankYou = document.createElement("p");
-            thankYou.innerHTML = "Thank you for shopping at Joe's Hotdogs!<br/>Please come again soon :-)";
-            thankYou.style.textAlign = "center";
-            receipt.appendChild(thankYou);
-        }
+    
+        dogPrice = showMoney(HOTDOG_PRICE * parseInt(numDogs));
+        friesPrice = showMoney(FRENCHFRY_PRICE * parseInt(numFries));
+        sodaPrice = showMoney(DRINK_PRICE * parseInt(numSoda));
 
         function showMoney(unroundedNum) {
             rounded = Math.round(unroundedNum * 100) / 100;
@@ -122,6 +74,32 @@
             _________________________________________
             <br>
         </p>
+
+        <script>
+            document.write("<p>-" + numDogs + "------HOTDOGS---------------$" + dogPrice + "</p>");
+            document.write("<p>-" + numFries + "------FRENCH FRIES----------$" + friesPrice + "</p>");
+            document.write("<p>-" + numSoda + "------DRINKS----------------$" + sodaPrice + "</p>");
+            document.write("_________________________________________</br>");
+
+            subtotal = showMoney(parseFloat(dogPrice) + parseFloat(friesPrice) + parseFloat(sodaPrice));
+            document.write("<p>SUBTOTAL BEFORE DISCOUNT: $" + subtotal + "</p>");
+
+            discountAmount = parseFloat(subtotal) >= 30 ? parseFloat(subtotal) * 0.1 : 0;
+            discountAmount = showMoney(discountAmount);
+            document.write("<p>DISCOUNT AMOUNT: $" + discountAmount + "</p>");
+
+            subtotal = showMoney(parseFloat(subtotal) - parseFloat(discountAmount));
+            document.write("<p>SUBTOTAL AFTER DISCOUNT: $" + subtotal + "</p>");
+
+            taxAmount = showMoney(parseFloat(subtotal) * 0.0625);
+            document.write("<p>TAX AMOUNT: $" + taxAmount + "</p>");
+
+            subtotal = showMoney(parseFloat(subtotal) + parseFloat(taxAmount));
+            document.write("<p>FINAL TOTAL: $" + subtotal + "</p>");
+
+            document.write("<p>_________________________________________</p>");
+            document.write("<p style='text-align: center;'>Thank you for shopping at Joe's Hotdogs!<br/>Please come again soon! :-)");
+        </script>
     </div>
 </body>
 </html>
