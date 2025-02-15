@@ -37,10 +37,17 @@
         numFries = prompt("How many French Fries would you like? ($3.99 each): ", "0");
         numSoda = prompt("How many Drinks would you like? ($1.79 each): ", "0");
     
+        // sets to default value if user did not input anything
+        if (numDogs == "") { numDogs = "0"; }
+        if (numFries == "") { numFries = "0"; }
+        if (numSoda == "") { numSoda = "0"; }
+
         dogPrice = showMoney(HOTDOG_PRICE * parseInt(numDogs));
         friesPrice = showMoney(FRENCHFRY_PRICE * parseInt(numFries));
         sodaPrice = showMoney(DRINK_PRICE * parseInt(numSoda));
 
+        // takes in a floating integer and returns a string that is rounded to
+        // exactly 2 decimal points
         function showMoney(unroundedNum) {
             rounded = Math.round(unroundedNum * 100) / 100;
             integerPart = Math.floor(rounded); 
