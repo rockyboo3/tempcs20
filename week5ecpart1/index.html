@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Extra Credit Part 1</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+            margin-top: 60px;
+            width: fit-content;
+        }
+
+        form #jump-button {
+            margin: 0 40px;
+            padding: 10px;
+            background-color: rgb(172, 172, 172);
+            cursor: pointer;
+            border: 2px solid rgb(255, 55, 55);
+            text-align: center;
+
+            /* prevents text from being highlighted when clicked */
+            user-select: none; 
+        }
+
+        form #left-input, #right-input {
+            border: 2px solid rgb(35, 126, 252);
+            text-align: center;
+        }
+
+        form .box {
+            width: 100px;
+            font-size: 24px;
+        }
+
+    </style>
+        
+    <script>
+        $(document).ready(() => {
+            $('#jump-button').click(() => {
+                if ($('#jump-button').html() == "JUMP &gt;") { // jump right
+                    jump("&lt; JUMP", 'left', 'right');
+
+                } else { // jump left
+                    jump("JUMP &gt;", 'right', 'left');
+                }
+            }); 
+        });
+
+        function jump(newButtonText, directionFrom, directionTo) {
+            $('#jump-button').html(newButtonText); 
+
+            textFromCurrInput = $('#' + directionFrom + '-input').val();
+            $('#' + directionTo + '-input').val(textFromCurrInput);
+            $('#' + directionFrom + '-input').val("");
+        }
+    </script>
+</head>
+<body>
+
+    <form>
+        <input type="text" id="left-input" name="left-input" class="box"/>
+        <div id="jump-button" class="box">JUMP ></div>
+        <input type="text" id="right-input" name="right-input" class="box"/>
+    </form>
+
+</body>
+</html>

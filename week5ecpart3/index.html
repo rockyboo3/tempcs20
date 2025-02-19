@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Extra Credit Part 3</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+        }
+
+        #slideshow-wrapper {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        img {
+            max-width: 500px;
+            height: auto;
+            border: 4px solid lightblue;
+        }
+
+        #buttons-wrapper {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 200px;
+        }
+
+        .slideshow-button {
+            padding: 10px 20px;
+            color: white;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 18px;
+        }
+
+        .slideshow-button:hover {
+            opacity: 0.6;
+        }
+
+        #start-button {
+            background-color: green;
+        }
+
+        #stop-button {
+            background-color: red;
+        }
+
+    </style>
+        
+    <script>
+        imgArray = 'dog1.jpg dog2.jpg dog3.jpg dog4.jpg dog5.jpg'.split(' ');
+        currIndex = 0;
+        stopNotClicked = true;
+        
+        $(document).ready(() => {
+            $('#slideshow-img').attr("src", 'images/' + imgArray[currIndex]);
+
+            $('#stop-button').click(() => {
+                stopNotClicked = false;
+            });
+
+            $('#start-button').click(() => {
+                stopNotClicked = true;
+                playSlideshow();
+            });
+        });
+
+        function playSlideshow() {
+            console.log(stopNotClicked)
+            if(!stopNotClicked) {
+                return;
+            } else {
+                $('#slideshow-img').fadeTo(2000, 0, () => {
+                    currIndex = currIndex == 4 ? 0 : currIndex + 1;
+                    $('#slideshow-img').attr("src", 'images/' + imgArray[currIndex]);
+                    $('#slideshow-img').fadeTo(2000, 1);
+                    if (stopNotClicked) {
+                        setTimeout(playSlideshow, 2000);
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="slideshow-wrapper">
+        <img id="slideshow-img">
+        <div id="buttons-wrapper">
+            <div class="slideshow-button" id="start-button">Start</div>
+            <div class="slideshow-button" id="stop-button">Stop</div>
+        </div>
+    </div>
+</body>
+</html>

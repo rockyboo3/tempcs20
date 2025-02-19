@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Extra Credit Part 2</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+        }
+
+        #checkbox-container {
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 60px;
+            border: 2px solid black;
+            padding: 12px;
+        }
+
+    </style>
+        
+    <script>
+        $(document).ready(() => {
+            checkboxVals = ['first', 'second', 'third', 'fourth']
+            for (i = 1; i <= 4; i++) {
+                $('#checkbox-container').append("<input class='checkboxes' type='checkbox' id='checkbox-" + i + "' name='checkbox-" + i + "' value='" + i + "'>");
+                $('#checkbox-container').append("<label for='checkbox-" + i + "'>" + checkboxVals[i - 1] + "</label>");
+                $('#checkbox-container').append("<br>");
+            }
+
+            $('#check-all').click(() => {
+                if ($('#check-all').is(':checked')) {
+                    changeCheckboxes(true);
+                    $('#check-all-label').html("Uncheck All");
+                } else {
+                    changeCheckboxes(false);
+                    $('#check-all-label').html("Check All");
+                }
+            }); 
+
+            $('.checkboxes').click(() => {
+                if ($('#check-all').is(':checked')) {
+                    $('#check-all').prop('checked', false);
+                    $('#check-all-label').html("Check All");
+                }
+            });
+        });
+
+        function changeCheckboxes(tOrF) {
+            for (i = 1; i <= 4; i++) {
+                $('#checkbox-' + i).prop('checked', tOrF);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="checkbox-container">
+        <input type="checkbox" id="check-all" name="check-all" value="unchecked">
+        <label id="check-all-label" for="check-all">Check All</label>
+        <br><br>
+    </div>
+
+</body>
+</html>
