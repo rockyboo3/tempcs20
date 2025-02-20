@@ -141,9 +141,9 @@
                 // end game if stalemate or the current player won
                 if (winConditionMessage != "") {
                     endGame();
+                } else {
+                    document.getElementById("current-turn").innerHTML = turn + "'s turn!";
                 }
-
-                document.getElementById("current-turn").innerHTML = turn + "'s turn!";
             }
 
             // returns a win condition based on three squares
