@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe 3</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        #current-turn, #win-condition {
+            width: 250px;
+            height: 18px;
+            margin: 0 auto;
+            padding: 10px 0;
+            color: white;
+            background-color: rgb(44, 98, 193);
+        }
+
+        #start-game {
+            width: 120px;
+            height: 18px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 10px 0;
+            color: white;
+            background-color: rgb(45, 210, 67);
+            cursor: pointer;
+        }
+
+        #board {
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: rgb(44, 98, 193);
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 315px;
+            height: 315px;
+        }
+
+        .square {
+            background-color: rgb(86, 138, 227);
+            width: 100px;
+            height: 100px;
+            margin: 2.5px;
+            font-size: 92px;
+            color: white;
+        }
+
+        .square:hover {
+            background-color: white;
+            color: rgb(86, 138, 227);
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // randomly assign X or O to go first
+        turn = Math.floor(Math.random() * 2);
+        turn = turn == 0 ? "X" : "O";
+
+        window.onload = function() {
+            // spec mentioned not to change code from ttt2...wasn't sure if I 
+            // was allowed to remove this
+            document.getElementById("sq2").innerHTML = "X";
+            document.getElementById("sq3").innerHTML = "O";
+
+            document.getElementById("current-turn").innerHTML = turn + "'s turn!";
+
+            // add the turn function as an event listener
+            squares = [];
+            for(i = 0; i < NUM_SQUARES; i++) {
+                document.getElementById("sq" + i).addEventListener("click", placeTurn);
+                squares.push(document.getElementById("sq" + i));
+            }
+
+            // clears the board when the start game button is clicked
+            document.getElementById("start-game").addEventListener("click", () => {
+                for(i = 0; i < NUM_SQUARES; i++) {
+                    squares[i].innerHTML = "";
+                }
+            });
+
+            // handles what happens when a user clicks a square to initiate a turn
+            function placeTurn(event) {
+                currId = event.target.id;
+                currHTML = document.getElementById(currId).innerHTML;
+
+                if (currHTML != "X" && currHTML != "O"){
+                    document.getElementById(currId).innerHTML = turn;
+                    turn = turn == "X" ? "O" : "X";
+                    document.getElementById("current-turn").innerHTML = turn + "'s turn!";
+                }
+
+                alert(currId);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to Tic Tac Toe!</h1>
+    <div id="current-turn"></div>
+    <div id="board">
+        <script>
+            const NUM_SQUARES = 9;
+            for (i=0; i<NUM_SQUARES; i++)
+            {
+                id = "sq"+i;
+                document.write("<div class='square' id='" + id + "'></div>");
+            }
+        </script>
+    </div>
+    <div id="win-condition"></div>
+    <div id="start-game">Start Game!</div>
+</body>
+</html>

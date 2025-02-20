@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe 1</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+        }
+
+        #board {
+            margin: 0 auto;
+            margin-top: 80px;
+            background-color: rgb(44, 98, 193);
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 315px;
+            height: 315px;
+        }
+
+        .square {
+            background-color: rgb(86, 138, 227);
+            width: 100px;
+            height: 100px;
+            margin: 2.5px;
+            font-size: 92px;
+            color: white;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .square:hover {
+            background-color: white;
+            color: rgb(86, 138, 227);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="board">
+        <div class="square" id="square-1">X</div>
+        <div class="square" id="square-2"></div>
+        <div class="square" id="square-3"></div>
+        <div class="square" id="square-4"></div>
+        <div class="square" id="square-5">X</div>
+        <div class="square" id="square-6"></div>
+        <div class="square" id="square-7">O</div>
+        <div class="square" id="square-8"></div>
+        <div class="square" id="square-9"></div>
+    </div>
+</body>
+</html>

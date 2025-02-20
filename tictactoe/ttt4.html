@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe 4</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        #current-turn, #win-condition {
+            width: 250px;
+            height: 18px;
+            margin: 0 auto;
+            padding: 10px 0;
+            color: white;
+            background-color: rgb(44, 98, 193);
+        }
+
+        #win-condition {
+            display: none;
+        }
+
+        #start-game {
+            width: 180px;
+            height: 18px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 10px 0;
+            color: white;
+            background-color: rgb(45, 210, 67);
+            cursor: pointer;
+
+            /* prevents text from being highlighted when clicked */
+            user-select: none;
+            display: none; 
+        }
+
+        #board {
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: rgb(44, 98, 193);
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 315px;
+            height: 315px;
+        }
+
+        .square {
+            background-color: rgb(86, 138, 227);
+            width: 100px;
+            height: 100px;
+            margin: 2.5px;
+            font-size: 92px;
+            color: white;
+        }
+
+        .square:hover {
+            background-color: white;
+            color: rgb(86, 138, 227);
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            startGame();
+
+            // function for starting the game/resetting variables
+            function startGame() {
+
+                //implicitly declared globally to be used in other functions 
+                turn = Math.floor(Math.random() * 2) == 0 ? "X" : "O";
+                winConditionMessage = "";
+                numHyphens = 9;
+                squares = [];
+
+                // reset from previous game (if applicable)
+                document.getElementById("current-turn").innerHTML = turn + "'s turn!";
+                document.getElementById("win-condition").innerHTML = winConditionMessage;
+                document.getElementById("win-condition").style.display = "none";
+                document.getElementById("start-game").style.display = "none";
+
+                // add the turn function as an event listener
+                for(i = 0; i < NUM_SQUARES; i++) {
+                    document.getElementById("sq" + i).addEventListener("click", placeTurn);
+                    squares.push(document.getElementById("sq" + i));
+                }
+            }
+            
+            // handles what happens when a user clicks a square to initiate a turn
+            function placeTurn(event) {
+                currId = event.target.id;
+                currHTML = document.getElementById(currId).innerHTML;
+
+                if (currHTML != "X" && currHTML != "O"){
+                    document.getElementById(currId).innerHTML = turn;
+                    turn = turn == "X" ? "O" : "X";
+                    document.getElementById("current-turn").innerHTML = turn + "'s turn!";
+                }
+
+                // array of current board's moves
+                moves = [];
+                squares.forEach(square => {
+                    if (square.innerHTML != "X" && square.innerHTML != "O") {
+                        moves.push("-");
+                    } else {
+                        moves.push(square.innerHTML);
+                    }
+                });
+
+                // array of characters in the rows, cols, and diagonals 
+                winConditions = 
+                    [createWinCondition(0, 1, 2), createWinCondition(3, 4, 5), createWinCondition(6, 7, 8),
+                     createWinCondition(0, 3, 6), createWinCondition(1, 4, 7), createWinCondition(2, 5, 8),
+                     createWinCondition(0, 4, 8), createWinCondition(2, 4, 6)];
+
+                // checks if current player won
+                winConditions.forEach(condition => {
+                    if (condition == "XXX") {
+                        winConditionMessage = "X wins!";
+                    } else if (condition == "OOO") {
+                        winConditionMessage = "O wins!";
+                    }
+                });
+                
+                // checks if there was a stalemate
+                if (!moves.includes("-") && winConditionMessage == "") {
+                    winConditionMessage = "There was a stalemate!";
+                }
+
+                // end game if stalemate or the current player won
+                if (winConditionMessage != "") {
+                    endGame();
+                }
+            }
+
+            // returns a win condition based on three squares
+            function createWinCondition(sq1Num, sq2Num, sq3Num) {
+                return squares[sq1Num].innerHTML + squares[sq2Num].innerHTML + squares[sq3Num].innerHTML;
+            }
+
+            // end the game by displaying the win condition and making the squares non-clickable
+            function endGame() {
+                document.getElementById("win-condition").innerHTML = winConditionMessage;
+                document.getElementById("win-condition").style.display = "block";
+                document.getElementById("start-game").style.display = "block";
+
+                squares.forEach(square => {
+                    square.removeEventListener("click", placeTurn); 
+                });
+            }
+
+            // clears the board and restarts the start game button is clicked
+            document.getElementById("start-game").addEventListener("click", () => {
+                // clear squares for new game
+                for(i = 0; i < NUM_SQUARES; i++) {
+                    squares[i].innerHTML = "";
+                }
+
+                startGame();
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to Tic Tac Toe!</h1>
+    <div id="current-turn"></div>
+    <div id="board">
+        <script>
+            const NUM_SQUARES = 9;
+            for (i=0; i<NUM_SQUARES; i++)
+            {
+                id = "sq"+i;
+                document.write("<div class='square' id='" + id + "'></div>");
+            }
+        </script>
+    </div>
+    <div id="win-condition"></div>
+    <div id="start-game">Start New Game!</div>
+</body>
+</html>
