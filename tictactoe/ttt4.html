@@ -106,7 +106,6 @@
                 if (currHTML != "X" && currHTML != "O"){
                     document.getElementById(currId).innerHTML = turn;
                     turn = turn == "X" ? "O" : "X";
-                    document.getElementById("current-turn").innerHTML = turn + "'s turn!";
                 }
 
                 // array of current board's moves
@@ -143,6 +142,8 @@
                 if (winConditionMessage != "") {
                     endGame();
                 }
+
+                document.getElementById("current-turn").innerHTML = turn + "'s turn!";
             }
 
             // returns a win condition based on three squares
