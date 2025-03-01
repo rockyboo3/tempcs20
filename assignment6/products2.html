@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #result {
+            width: 100px;
+            background-color: rgb(42, 85, 186);
+            color: white;
+            margin: 0 auto;
+            margin-top: 40px;
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        #result:hover {
+            cursor: pointer;
+            background-color: rgb(73, 114, 210);
+        }
+    </style>
+
+    <script>
+        $(document).ready(() => {
+            $('#result').click(() => {
+                $.get("products.json", (data) => {
+                    str = JSON.stringify(data);
+                    document.write(data);
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="result">Get Products</div>
+</body>
+</html>

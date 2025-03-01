@@ -1,0 +1,50 @@
+products {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+    background-color: rgb(42, 85, 186);
+    color: rgb(39, 25, 8);
+}
+
+products product {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(254, 255, 241);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px auto;
+}
+
+products product name {
+    color: rgb(30, 40, 63);
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+products product price:before {
+    content: "$";
+}
+
+products product description {
+    font-style: italic;
+}
+
+products product categories {
+    display: inline-block;
+}
+
+products product categories category:after {
+    content: ",";
+}
+
+products product categories category:first-child:before {
+    content: "Categories: ";
+}
+
+products product categories category:last-child:after {
+    content: "";
+}
