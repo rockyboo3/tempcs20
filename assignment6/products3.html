@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(42, 85, 186)
+        }
+
+        #filter {
+            width: 100px;
+            background-color: rgb(254, 255, 241);
+            color: rgb(39, 25, 8);
+            margin: 40px auto;
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        #filter:hover {
+            cursor: pointer;
+            background-color: rgb(202, 221, 253);
+        }
+
+        #categoryFilters-wrapper {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .product {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(254, 255, 241);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 16px auto;
+            text-align: center;
+        }
+
+        .name {
+            color: rgb(30, 40, 63);
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+    </style>
+
+    <script>
+        categoryFiltersArr = [];
+        categoriesAndNamesArr = [];
+
+        $(document).ready(() => {
+            $.get("https://rockyboo3.github.io/tempcs20/assignment6/products.json", (data) => {
+                data["products"].forEach(product => {
+                    currProductName = product["name"];
+                    product["categories"].forEach(category => {
+                        if (!categoryFiltersArr.includes(category)) {
+                            categoryFiltersArr.push(category);
+                            $('#categoryFilters').append('<option value=' + category + '>' + category + '</option>');
+                        }
+                        categoriesAndNamesArr.push({ category: category, name: currProductName});
+
+                        $('#filter').click(() => {
+                            $('#result').empty();
+                            currFilter = $('#categoryFilters').val();
+
+                            categoriesAndNamesArr.forEach(categoryNamePair => {
+                                if (categoryNamePair.category == currFilter) {
+                                    $('#result').append('<div class="product name">' + categoryNamePair.name + '</div>');
+                                }
+                            });
+                        });
+                    });
+                });
+            });            
+        });
+    </script>
+</head>
+<body>
+    <div id="categoryFilters-wrapper">
+        <select name="categoryFilters" id="categoryFilters"></select>
+    </div>
+    <div id="filter">Filter</div>
+
+    <div id="result"></div>
+</body>
+</html>
