@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(42, 85, 186)
+        }
+
+        .buttonDisplay {
+            width: 100px;
+            background-color: rgb(254, 255, 241);
+            color: rgb(39, 25, 8);
+            margin: 0 auto;
+            margin-top: 40px;
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .buttonDisplay:hover {
+            cursor: pointer;
+            background-color: rgb(202, 221, 253);
+        }
+
+        .products {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 20px;
+            background-color: rgb(42, 85, 186);
+            color: rgb(39, 25, 8);
+        }
+
+        .product {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(254, 255, 241);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 16px auto;
+        }
+
+        .product .name {
+            color: rgb(30, 40, 63);
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product .price:before {
+            content: "$";
+        }
+
+        .product .description {
+            font-style: italic;
+        }
+
+        .product .categories {
+            display: inline-block;
+        }
+
+        .product .categories:before {
+            content: "Categories: ";
+        }
+    </style>
+
+    <script>
+        $(document).ready(() => {
+            $('#result').click(() => {
+
+                // get the json object from a NON-LOCAL url
+                $.get("https://rockyboo3.github.io/tempcs20/assignment6/products.json", (data) => {
+                    $('#result').removeClass('buttonDisplay');
+                    $('#result').addClass('products'); // essentially replace button with following data
+                    $('#result').html("");
+
+                    // loop through each product
+                    data["products"].forEach(product => {
+                        $('#result').append(
+                            '<div class="product">' +
+                                '<div class="name">' + product["name"] + '</div>' +
+                                '<div class="description">' + product["description"] + '</div>' +
+                                '<div class="price">' + product["price"] + '</div>' +
+                                '<div class="categories">' + product["categories"] + '</div>' +
+                            '</div>');
+                    });
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="result" class="buttonDisplay">Get Products</div>
+</body>
+</html>
