@@ -75,9 +75,11 @@
     <script>
         $(document).ready(() => {
             $('#result').click(() => {
+
+                // get the json object from a NON-LOCAL url
                 $.get("https://rockyboo3.github.io/tempcs20/assignment6/products.json", (data) => {
                     $('#result').removeClass('buttonDisplay');
-                    $('#result').addClass('products');
+                    $('#result').addClass('products'); // essentially replace button with following data
                     $('#result').html("");
 
                     data["products"].forEach(product => {
