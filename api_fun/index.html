@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Fun</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            background-color: rgb(222, 102, 122);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 42px;
+            text-align: center;
+        }
+
+        #result {
+            padding: 60px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: space-between;
+            margin: 0 auto;
+            gap: 20px;
+        }
+        
+        .jellybean {
+            margin-bottom: 20px;
+        }
+
+        .jellybean .flavor-name {
+            width: 120px;
+            margin-top: -10px;
+        }
+
+        .jellybean-image-wrapper {
+            background-color: rgb(249, 167, 180);
+            height: 120px;
+            width: 120px;
+            border-radius: 60px;
+            margin: 0 auto;
+        }
+
+        .jellybean-image-wrapper img {
+            margin-top: 30px;
+        }
+
+        #additional-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px 60px 40px;
+            font-size: 20px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(() => {
+            // fetch data
+            fetch("https://jellybellywikiapi.onrender.com/api/beans?colorGroup=lightpink")
+            .then(res => res.text())
+            .then(data => {
+                data = JSON.parse(data);
+
+                // go through each returned jellybean
+                for (index = 0; index < data.totalCount; index++) {
+                    // add each jellybean's image and name
+                    $("#result").append("<div class='jellybean'>" + 
+                            "<div class='jellybean-image-wrapper'>" +
+                                "<img style='width: 100px;' src='" + data.items[index].imageUrl + "'/>" +
+                            "</div>" +
+                        "<br>" +
+                        "<p class='flavor-name'>" + data.items[index].flavorName + "</p>" +
+                        "</div>");
+                }
+            })
+            .catch(error => console.log(error));
+        });
+    </script>
+</head>
+<body>
+    <h1>Light Pink Jellybeans</h1>
+    <div id="result"></div>
+    <p id="additional-info">
+        For this assignment, I selected the Jelly Belly Wiki API. This API handles data
+        from the jellybean company, Jelly Belly, allowing users to fetch jellybeans based
+        on name, color, allergens, ingredients, etc.
+        <br><br>
+        I chose this API because I thought it was fun and there are a lot of parameters
+        to explore/fetch from. I also really like jellybeans!
+        <br><br>
+        I found the API on https://jelly-belly-wiki.netlify.app/
+        <br><br>
+        The parameter I used for the API request was "colorGroup", which returns all of 
+        the jellybeans of a specified color. For this assignment, I fetched from the 
+        "lightpink" colorGroup. 
+        <br><br>
+        This API may be helpful for a candy store who gets there jellybeans directly from 
+        Jelly Belly; they can fetch helpful information such as jellybean flavor names,
+        descriptions, and full ingredients lists.
+    </p>
+</body>
+</html>
