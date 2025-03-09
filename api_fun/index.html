@@ -66,6 +66,8 @@
             .then(res => res.text())
             .then(data => {
                 data = JSON.parse(data);
+                $("#result").html("");
+                $("#result").css("width", "fit-content");
 
                 // go through each returned jellybean
                 for (index = 0; index < data.totalCount; index++) {
@@ -85,7 +87,7 @@
 </head>
 <body>
     <h1>Light Pink Jellybeans</h1>
-    <div id="result"></div>
+    <div id="result" style="width: 140px; margin: 0 auto;">Fetching results...</div>
     <p id="additional-info">
         For this assignment, I selected the Jelly Belly Wiki API. This API handles data
         from the jellybean company, Jelly Belly, allowing users to fetch jellybeans based
